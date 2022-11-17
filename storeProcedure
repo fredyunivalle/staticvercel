@@ -1,0 +1,22 @@
+
+create or replace procedure transfer(
+   nombre varchar(20)
+)
+language plpgsql    
+as $$
+declare RowCount  INTEGER := 0;
+
+begin
+    -- subtracting the amount from the sender's account 
+	
+	  
+	RowCount = (select max(ida) from tabla_a ta);
+    
+    insert into tabla_a (ida, nombre)
+    VALUES (RowCount +1, nombre);
+    
+   
+end;$$
+
+call transfer('carlsos');
+

@@ -20,7 +20,14 @@ const client = new Client({
     res.send(rows);
   });  
 
-  
+  app.get('/executingsp', async (req, res) => {
+    //const { id } = req.params
+    let nombre = 'fREDY b'
+    const { rows } = await client.query(`call transfer('${nombre}') `);
+    res.send(rows);
+  }); 
+
+
 
 
 const port = process.env.PORT || 3000;
